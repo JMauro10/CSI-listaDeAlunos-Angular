@@ -1,0 +1,30 @@
+
+<nav>
+  <a routerLink="/info"> Informações do Sistema </a>
+</nav>
+
+<br>
+
+<nav>
+  <a routerLink="/header"> Centro de Links </a>
+</nav>
+
+<h1> Formulário de Cadastro de alunos </h1>
+
+<div class="form-container">
+  <label for="nome">Nome:</label>
+  <input type="text" id="nome" [(ngModel)]="nome" placeholder="Digite o nome" />
+
+  <p>Nome digitado: {{ nome }}</p>
+
+  <button (click)="salvar()">Salvar</button>
+
+  <div class="lista-alunos">
+    <h3>Lista de Alunos:</h3>
+    <p *ngIf="listas.length === 0">Nenhum aluno cadastrado</p>
+    <ul *ngIf="listas.length > 0">
+      <li *ngFor="let aluno of listas">{{ aluno }}</li>
+    </ul>
+  </div>
+</div>
+
