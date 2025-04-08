@@ -1,0 +1,17 @@
+<nav>
+  <a routerLink="/formulario"> Formulário </a>
+</nav>
+
+
+<div class="form-container">
+<div class="lista-alunos">
+  <h3>Lista de Alunos:</h3>
+  <p *ngIf="listas.length === 0">Nenhum aluno cadastrado</p>
+  <ul *ngIf="listas.length > 0">
+    <li *ngFor="let aluno of listas">{{ aluno }}</li>
+  </ul>
+</div>
+</div>
+
+
+

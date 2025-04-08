@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import {RouterLink} from '@angular/router';
 import {FormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
+import {AlunoService} from '../aluno.service';
+import {Router} from '@angular/router';
+import {routes} from '../app.routes';
 
 @Component({
   selector: 'app-formulario',
@@ -14,12 +17,11 @@ import {CommonModule} from '@angular/common';
 })
 export class FormularioComponent {
   nome: string = '';
-  listas: string[] = [];
 
+  constructor(private service : AlunoService, private router : Router) {
+  }
   salvar() {
-    if (this.nome.trim()) {
-      this.listas.push(this.nome.trim());
-      this.nome = '';
-    }
+    this.service.salvar(this.nome);
+    this.router.navigateByUrl('/lista')
   }
 }
